@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>희수쌤의 수업 자료실</title>
-
-  <!-- ✅ CSS 전체 포함 -->
   <style>
     body {
       font-family: 'Pretendard', 'Arial', sans-serif;
@@ -35,13 +33,22 @@
       margin-top: 40px;
     }
 
+    /* ✅ 3단 카드 그리드 */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-    @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 650px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 650px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .unit {
       border: 1px solid #e5e5e5;
@@ -54,6 +61,7 @@
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .unit-header {
       background-color: #f0f4fa;
       padding: 12px 16px;
@@ -70,6 +78,7 @@
     .unit-header.active::after {
       transform: rotate(-180deg);
     }
+
     .unit-content {
       display: none;
       padding: 10px 20px 15px;
@@ -83,6 +92,7 @@
     .unit-content li {
       margin: 8px 0;
     }
+
     a {
       color: #007acc;
       text-decoration: none;
@@ -90,6 +100,7 @@
     a:hover {
       text-decoration: underline;
     }
+
     footer {
       background-color: #ddd;
       padding: 10px 0;
@@ -100,3 +111,109 @@
     }
   </style>
 </head>
+<body>
+  <header>
+    <h1>📚 희수쌤의 수업 자료실</h1>
+    <p>과목별 단원을 클릭하면 세부 자료가 펼쳐집니다.</p>
+  </header>
+
+  <main>
+    <h2>물리 I</h2>
+    <div class="grid">
+      <!-- 1단원 -->
+      <div class="unit">
+        <div class="unit-header">1단원: 운동의 표현</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">1-1. 변위와 속도 (PDF)</a></li>
+            <li><a href="#">1-2. 가속도 개념 (PDF)</a></li>
+            <li><a href="#">실험 영상: 등가속도 운동</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2단원 -->
+      <div class="unit">
+        <div class="unit-header">2단원: 힘과 운동</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">2-1. 뉴턴의 운동법칙</a></li>
+            <li><a href="#">2-2. 마찰력과 운동</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3단원 -->
+      <div class="unit">
+        <div class="unit-header">3단원: 역학적 에너지</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">3-1. 일과 에너지</a></li>
+            <li><a href="#">3-2. 에너지 보존 법칙</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4단원 -->
+      <div class="unit">
+        <div class="unit-header">4단원: 역학적 시스템</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">4-1. 충돌과 에너지 변환</a></li>
+            <li><a href="#">4-2. 운동량 보존</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5단원 -->
+      <div class="unit">
+        <div class="unit-header">5단원: 만유인력과 위성운동</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">5-1. 만유인력 법칙</a></li>
+            <li><a href="#">5-2. 위성의 원운동</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 6단원 -->
+      <div class="unit">
+        <div class="unit-header">6단원: 열에너지</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">6-1. 열과 일의 관계</a></li>
+            <li><a href="#">6-2. 에너지 보존과 열역학 법칙</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Heesoo Teacher | 모든 자료는 학습용으로만 사용됩니다.
+  </footer>
+
+  <script>
+    // 펼침 기능 제어
+    const headers = document.querySelectorAll('.unit-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const isActive = header.classList.contains('active');
+
+        // 다른 열려 있는 항목 닫기
+        document.querySelectorAll('.unit-header.active').forEach(h => {
+          h.classList.remove('active');
+          h.nextElementSibling.style.display = 'none';
+        });
+
+        // 클릭한 항목 토글
+        if (!isActive) {
+          header.classList.add('active');
+          content.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
