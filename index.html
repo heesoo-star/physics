@@ -263,26 +263,30 @@
     &copy; 2025 Heesoo Teacher | 모든 자료는 학습용으로만 사용됩니다.
   </footer>
 
-  <script>
-    // 펼침 기능 제어
-    const headers = document.querySelectorAll('.unit-header');
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        const isActive = header.classList.contains('active');
+<script>
+  const headers = document.querySelectorAll('.unit-header');
 
-      
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isActive = header.classList.contains('active');
 
-        // 클릭한 항목 토글
-        if (!isActive) {
-          header.classList.add('active');
-          content.style.display = 'block';
-        }
-      });
+      if (isActive) {
+        // 이미 열려 있다면 닫기
+        header.classList.remove('active');
+        content.style.display = 'none';
+      } else {
+        // 닫혀 있다면 열기
+        header.classList.add('active');
+        content.style.display = 'block';
+      }
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
