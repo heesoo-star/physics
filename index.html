@@ -1,69 +1,102 @@
-<h2>물리 I</h2>
-<div class="grid">
-  <!-- 1단원 -->
-  <div class="unit">
-    <div class="unit-header">1단원: 운동의 표현</div>
-    <div class="unit-content">
-      <ul>
-        <li><a href="#">1-1. 변위와 속도 (PDF)</a></li>
-        <li><a href="#">1-2. 가속도 개념 (PDF)</a></li>
-        <li><a href="#">실험 영상: 등가속도 운동</a></li>
-      </ul>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>희수쌤의 수업 자료실</title>
 
-  <!-- 2단원 -->
-  <div class="unit">
-    <div class="unit-header">2단원: 힘과 운동</div>
-    <div class="unit-content">
-      <ul>
-        <li><a href="#">2-1. 뉴턴의 운동법칙</a></li>
-        <li><a href="#">2-2. 마찰력과 운동</a></li>
-      </ul>
-    </div>
-  </div>
+  <!-- ✅ CSS 전체 포함 -->
+  <style>
+    body {
+      font-family: 'Pretendard', 'Arial', sans-serif;
+      background-color: #f6f9fc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #004c97;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 { margin: 0; }
+    h2 {
+      color: #004c97;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
 
-  <!-- 3단원 -->
-  <div class="unit">
-    <div class="unit-header">3단원: 역학적 에너지</div>
-    <div class="unit-content">
-      <ul>
-        <li><a href="#">3-1. 일과 에너지</a></li>
-        <li><a href="#">3-2. 에너지 보존 법칙</a></li>
-      </ul>
-    </div>
-  </div>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 650px) { .grid { grid-template-columns: 1fr; } }
 
-  <!-- 4단원 (추가) -->
-  <div class="unit">
-    <div class="unit-header">4단원: (제목 입력)</div>
-    <div class="unit-content">
-      <ul>
-        <li><a href="#">4-1. (자료 제목)</a></li>
-        <li><a href="#">4-2. (자료 제목)</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 5단원 (추가) -->
-  <div class="unit">
-    <div class="unit-header">5단원: (제목 입력)</div>
-    <div class="unit-content">
-      <ul>
-        <li><a href="#">5-1. (자료 제목)</a></li>
-        <li><a href="#">5-2. (자료 제목)</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 6단원 (추가) -->
-  <div class="unit">
-    <div class="unit-header">6단원: (제목 입력)</div>
-    <div class="unit-content">
-      <ul>
-        <li><a href="#">6-1. (자료 제목)</a></li>
-        <li><a href="#">6-2. (자료 제목)</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+    .unit {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background-color: #f9fbff;
+      transition: transform 0.2s, box-shadow 0.2s;
+      overflow: hidden;
+    }
+    .unit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .unit-header {
+      background-color: #f0f4fa;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
+    }
+    .unit-header::after {
+      content: '▼';
+      position: absolute;
+      right: 16px;
+      transition: transform 0.2s;
+    }
+    .unit-header.active::after {
+      transform: rotate(-180deg);
+    }
+    .unit-content {
+      display: none;
+      padding: 10px 20px 15px;
+      background: #fff;
+    }
+    .unit-content ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .unit-content li {
+      margin: 8px 0;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #ddd;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+      margin-top: 40px;
+    }
+  </style>
+</head>
