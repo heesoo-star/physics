@@ -30,27 +30,40 @@
       color: #004c97;
       border-bottom: 2px solid #e0e0e0;
       padding-bottom: 5px;
-      grid-column: 1 / -1; /* 제목은 전체 폭 차지 */
+      margin-top: 40px;
     }
 
-    /* 🔹 3단 카드 그리드 */
+    /* ✅ 핵심: 카드 3단 그리드 */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+    }
+
+    /* 반응형: 화면 좁을 때 자동으로 줄이기 */
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 650px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .unit {
       border: 1px solid #e5e5e5;
       border-radius: 8px;
-      overflow: hidden;
       background-color: #f9fbff;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      overflow: hidden;
     }
     .unit:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .unit-header {
       background-color: #f0f4fa;
       padding: 12px 16px;
@@ -110,4 +123,93 @@
         <div class="unit-header">1단원: 운동의 표현</div>
         <div class="unit-content">
           <ul>
-            <li><a href="
+            <li><a href="#">1-1. 변위와 속도 (PDF)</a></li>
+            <li><a href="#">1-2. 가속도 개념 (PDF)</a></li>
+            <li><a href="#">실험 영상: 등가속도 운동</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit-header">2단원: 힘과 운동</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">2-1. 뉴턴의 운동법칙</a></li>
+            <li><a href="#">2-2. 마찰력과 운동</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit-header">3단원: 역학적 에너지</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">3-1. 일과 에너지</a></li>
+            <li><a href="#">3-2. 에너지 보존 법칙</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>수학 II</h2>
+    <div class="grid">
+      <div class="unit">
+        <div class="unit-header">1단원: 지수함수와 로그함수</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">개념 정리 PDF</a></li>
+            <li><a href="#">보충 강의 영상</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit-header">2단원: 삼각함수</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">삼각함수 그래프</a></li>
+            <li><a href="#">주기성과 위상 이동</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="unit">
+        <div class="unit-header">3단원: 미분법</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="#">도함수 개념</a></li>
+            <li><a href="#">그래프와 접선</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Heesoo Teacher | 모든 자료는 학습용으로만 사용됩니다.
+  </footer>
+
+  <script>
+    // 펼침 기능 제어
+    const headers = document.querySelectorAll('.unit-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const isActive = header.classList.contains('active');
+
+        // 다른 열려 있는 항목 닫기
+        document.querySelectorAll('.unit-header.active').forEach(h => {
+          h.classList.remove('active');
+          h.nextElementSibling.style.display = 'none';
+        });
+
+        // 클릭한 항목 토글
+        if (!isActive) {
+          header.classList.add('active');
+          content.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
