@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Physics Materials</title>
+  <title>희수쌤의 수업 자료실</title>
   <style>
     body {
       font-family: 'Pretendard', 'Arial', sans-serif;
@@ -18,7 +18,7 @@
       padding: 20px 0;
     }
     main {
-      max-width: 700px;
+      max-width: 1200px;
       margin: 40px auto;
       background: white;
       border-radius: 12px;
@@ -30,12 +30,26 @@
       color: #004c97;
       border-bottom: 2px solid #e0e0e0;
       padding-bottom: 5px;
+      grid-column: 1 / -1; /* 제목은 전체 폭 차지 */
     }
+
+    /* 🔹 3단 카드 그리드 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
     .unit {
-      margin: 15px 0;
       border: 1px solid #e5e5e5;
       border-radius: 8px;
       overflow: hidden;
+      background-color: #f9fbff;
+      transition: transform 0.2s;
+    }
+    .unit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .unit-header {
       background-color: #f0f4fa;
@@ -91,66 +105,9 @@
 
   <main>
     <h2>물리 I</h2>
-
-    <div class="unit">
-      <div class="unit-header">1단원: 운동의 표현</div>
-      <div class="unit-content">
-        <ul>
-          <li><a href="https://drive.google.com/file/d/1BGnWf_nq6FQw9B_o_niHEPVTwzNqXhIo/view?usp=drive_link">질량이 변하는 계</a></li>
-          <li><a href="https://example.com/lecture2.pdf" target="_blank">1-2. 가속도 개념 (PDF)</a></li>
-          <li><a href="https://example.com/video1" target="_blank">실험 영상: 등가속도 운동</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="unit">
-      <div class="unit-header">2단원: 힘과 운동</div>
-      <div class="unit-content">
-        <ul>
-          <li><a href="https://example.com/force1.pdf" target="_blank">2-1. 뉴턴의 운동법칙</a></li>
-          <li><a href="https://example.com/force2.pdf" target="_blank">2-2. 마찰력과 운동</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <h2>수학 II</h2>
-    <div class="unit">
-      <div class="unit-header">1단원: 지수함수와 로그함수</div>
-      <div class="unit-content">
-        <ul>
-          <li><a href="https://example.com/math1.pdf" target="_blank">개념 정리 PDF</a></li>
-          <li><a href="https://example.com/math2.mp4" target="_blank">보충 강의 영상</a></li>
-        </ul>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2025 Heesoo Teacher | 모든 자료는 학습용으로만 사용됩니다.
-  </footer>
-
-  <script>
-    // 펼침 기능 제어
-    const headers = document.querySelectorAll('.unit-header');
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        const isActive = header.classList.contains('active');
-
-        // 다른 열려 있는 항목 닫기
-        document.querySelectorAll('.unit-header.active').forEach(h => {
-          h.classList.remove('active');
-          h.nextElementSibling.style.display = 'none';
-        });
-
-        // 클릭한 항목 토글
-        if (!isActive) {
-          header.classList.add('active');
-          content.style.display = 'block';
-        }
-      });
-    });
-  </script>
-</body>
-</html>
-
+    <div class="grid">
+      <div class="unit">
+        <div class="unit-header">1단원: 운동의 표현</div>
+        <div class="unit-content">
+          <ul>
+            <li><a href="
