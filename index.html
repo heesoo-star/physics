@@ -271,11 +271,7 @@
         const content = header.nextElementSibling;
         const isActive = header.classList.contains('active');
 
-       <! // 다른 열려 있는 항목 닫기
-        document.querySelectorAll('.unit-header.active').forEach(h => {
-          h.classList.remove('active');
-          h.nextElementSibling.style.display = 'none';
-        });>
+      
 
         // 클릭한 항목 토글
         if (!isActive) {
@@ -287,6 +283,7 @@
   </script>
 </body>
 </html>
+
 
 
 
